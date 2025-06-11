@@ -63,6 +63,51 @@
             z-index: 0;
         }
 
+        .hero-video::-webkit-media-controls {
+            opacity: 0.7;
+        }
+
+        .hero-audio-control {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .hero-audio-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-audio-btn:hover {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            transform: scale(1.1);
+        }
+
+        .hero-audio-btn.muted {
+            background: rgba(255, 68, 68, 0.8);
+            border-color: #ff4444;
+            color: white;
+        }
+
+        .hero-audio-btn.unmuted {
+            background: rgba(0, 255, 136, 0.8);
+            border-color: #00ff88;
+            color: white;
+        }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -814,6 +859,364 @@
             color: var(--bg-primary);
             border: none;
             cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+            background: var(--accent-orange);
+        }
+
+        .audio-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--accent-gold);
+            color: var(--bg-primary);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .audio-btn:hover {
+            background: var(--accent-gold);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .audio-btn.muted {
+            background: rgba(255, 68, 68, 0.9);
+            border-color: #ff4444;
+            color: white;
+        }
+
+        .audio-btn.unmuted {
+            background: rgba(0, 255, 136, 0.9);
+            border-color: #00ff88;
+            color: white;
+        }
+
+        /* Community Section */
+        .community-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+            position: relative;
+        }
+
+        .community-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .community-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .community-header p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .tutorial-card {
+            background: var(--bg-accent);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tutorial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .tutorial-card:hover::before {
+            left: 100%;
+        }
+
+        .tutorial-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .tutorial-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .tutorial-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .tutorial-card p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .tutorial-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content strong {
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .step-link {
+            color: var(--accent-orange);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .step-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .prompt-card {
+            position: relative;
+        }
+
+        .prompt-container {
+            background: var(--bg-primary);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .prompt-header {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+            color: var(--bg-primary);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .copy-prompt-btn {
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            color: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .copy-prompt-btn:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+        }
+
+        .prompt-content {
+            padding: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            white-space: pre-line;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .prompt-content strong {
+            color: var(--accent-gold);
+        }
+
+        .community-tips {
+            margin-bottom: 4rem;
+        }
+
+        .community-tips h3 {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .tip-item {
+            background: var(--bg-accent);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tip-item:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        .tip-icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .tip-item strong {
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .tip-item p {
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .share-section {
+            text-align: center;
+        }
+
+        .share-section h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .share-section p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .x-community-share {
+            background: linear-gradient(135deg, var(--bg-accent), #1a1a1a);
+            color: var(--text-primary);
+            border-color: var(--accent-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .x-community-share::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .x-community-share:hover::before {
+            left: 100%;
+        }
+
+        .x-community-share:hover {
+            background: linear-gradient(135deg, var(--accent-gold), #ff6b35);
+            color: var(--bg-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        .x-logo-small {
+            width: 20px;
+            height: 20px;
+            filter: brightness(1.2);
+        }
+
+        .x-community-share .x-logo-small {
+            filter: brightness(1.3);
+            transition: all 0.3s ease;
+        }
+
+        .x-community-share:hover .x-logo-small {
+            filter: brightness(1.5) drop-shadow(0 0 4px rgba(255, 215, 0, 0.6));
         }
 
         /* Chart Section */
@@ -1058,10 +1461,53 @@
                 font-size: 0.9rem;
             }
 
+            /* Community Section Mobile */
+            .tutorial-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .tutorial-card {
+                padding: 2rem;
+            }
+
+            .community-tips {
+                margin-bottom: 3rem;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .tip-item {
+                padding: 1.5rem;
+            }
+
+            .share-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .prompt-content {
+                font-size: 0.8rem;
+                max-height: 300px;
+            }
+
+            .step {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .tutorial-steps {
+                gap: 2rem;
+            }
+
             /* Disable some heavy animations on mobile for better performance */
             .btn::after,
-            .live-stat-card::before,
-            .cta-buttons .btn {
+            .live-stat-card::before {
                 animation: none;
             }
         }
@@ -1137,13 +1583,18 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <video class="hero-video" autoplay muted loop playsinline>
+        <video class="hero-video" autoplay muted loop playsinline controls>
             <source src="chimpmog2.mp4" type="video/mp4">
         </video>
+        <div class="hero-audio-control">
+            <button class="hero-audio-btn" onclick="toggleHeroAudio(this)" title="Unmute hero video">
+                🔊
+            </button>
+        </div>
         <div class="container">
             <div class="hero-content">
-                <h1>This is Mog. He doesn't vlog for views. He vlogs to mog.</h1>
-                <h2>An AI-born giga chad who documents the grind, dominates charts, and leaves no man unmogged.</h2>
+                <h1>MogVlogs. Where AI alphas document the ultimate mog.</h1>
+                <h2>The premier platform for AI-generated mogging content. Watch digital chads dominate, outperform, and leave everyone unmogged.</h2>
                 
                 <div class="cta-buttons">
                     <a href="https://x.com/mogvlogs" class="btn btn-primary x-btn" target="_blank">
@@ -1176,14 +1627,14 @@
     <section class="about">
         <div class="container">
             <div class="about-content">
-                <h2>"Mog is not a personality — he's a presence."</h2>
-                <p>He's the world's first AI vlogger built to dominate the digital realm. Mog doesn't care about your engagement metrics — he cares about dominance, aesthetics, and proof-of-mog.</p>
-                <p>Every video he drops is pure alpha signal. No cuts. No edits. Just mogging in its rawest form.</p>
+                <h2>"This isn't about one character — it's about the entire mogging revolution."</h2>
+                <p>Welcome to the ultimate AI mogging ecosystem. Here, digital alphas don't just create content — they dominate it. Every upload showcases the art of mogging: outperforming, surpassing, and achieving peak digital supremacy.</p>
+                <p>To "mog" means to completely outclass, dominate, or be superior to others. Our AI entities have mastered this art form.</p>
                 
                 <div class="mog-moments">
-                    <div class="moment-tag">🏋️ Vlogging Mid-Workout</div>
-                    <div class="moment-tag">📈 Alpha Market Takes</div>
-                    <div class="moment-tag">🎯 Why I Sold at the Top</div>
+                    <div class="moment-tag">🏋️ Alpha Performance</div>
+                    <div class="moment-tag">📈 Market Domination</div>
+                    <div class="moment-tag">🎯 Peak Optimization</div>
                 </div>
             </div>
         </div>
@@ -1192,57 +1643,61 @@
     <!-- Video Gallery Section -->
     <section class="video-gallery">
         <div class="container">
-            <h2>🎬 Mog's Alpha Content</h2>
+            <h2>🎬 Ultimate Mogging Content</h2>
             <div class="video-grid">
                 <div class="video-card">
-                    <video muted preload="metadata">
+                    <video muted preload="metadata" controls>
                         <source src="ted talk mog.mp4" type="video/mp4">
                     </video>
                     <div class="play-overlay" onclick="playVideo(this)">
                         <button class="play-btn">▶</button>
+                        <button class="audio-btn" onclick="toggleAudio(this)" title="Unmute audio">🔊</button>
                     </div>
                     <div class="video-info">
-                        <div class="video-title">🎤 Ted Talk: The Alpha Mindset</div>
-                        <div class="video-description">Mog breaks down the psychology of dominance in this groundbreaking presentation.</div>
+                        <div class="video-title">🎤 Ted Talk: The Mogging Mindset</div>
+                        <div class="video-description">AI entity demonstrates the psychology of dominance and how to outperform the competition.</div>
                     </div>
                 </div>
 
                 <div class="video-card">
-                    <video muted preload="metadata">
+                    <video muted preload="metadata" controls>
                         <source src="indianmog.mp4" type="video/mp4">
                     </video>
                     <div class="play-overlay" onclick="playVideo(this)">
                         <button class="play-btn">▶</button>
+                        <button class="audio-btn" onclick="toggleAudio(this)" title="Unmute audio">🔊</button>
                     </div>
                     <div class="video-info">
                         <div class="video-title">🇮🇳 Global Mogging: India Edition</div>
-                        <div class="video-description">Mog explores international markets and shows universal dominance principles.</div>
+                        <div class="video-description">AI alpha explores international markets demonstrating universal mogging principles.</div>
                     </div>
                 </div>
 
                 <div class="video-card">
-                    <video muted preload="metadata">
+                    <video muted preload="metadata" controls>
                         <source src="apemog.mp4" type="video/mp4">
                     </video>
                     <div class="play-overlay" onclick="playVideo(this)">
                         <button class="play-btn">▶</button>
+                        <button class="audio-btn" onclick="toggleAudio(this)" title="Unmute audio">🔊</button>
                     </div>
                     <div class="video-info">
                         <div class="video-title">🦍 Ape Mode: Maximum Mogging</div>
-                        <div class="video-description">When conventional mogging isn't enough, Mog activates ape mode.</div>
+                        <div class="video-description">When conventional dominance isn't enough, AI entities activate maximum mogging protocols.</div>
                     </div>
                 </div>
 
                 <div class="video-card">
-                    <video muted preload="metadata">
+                    <video muted preload="metadata" controls>
                         <source src="bearmog.mp4" type="video/mp4">
                     </video>
                     <div class="play-overlay" onclick="playVideo(this)">
                         <button class="play-btn">▶</button>
+                        <button class="audio-btn" onclick="toggleAudio(this)" title="Unmute audio">🔊</button>
                     </div>
                     <div class="video-info">
                         <div class="video-title">🐻 Bear Market Mogging</div>
-                        <div class="video-description">Mog shows how real alphas thrive even when markets are down.</div>
+                        <div class="video-description">AI alphas demonstrate how to maintain dominance and outperform even in harsh market conditions.</div>
                     </div>
                 </div>
             </div>
@@ -1349,12 +1804,127 @@
         </div>
     </section>
 
+    <!-- Community Section -->
+    <section class="community-section">
+        <div class="container">
+            <div class="community-header">
+                <h2>🎬 Join the Mogging Revolution</h2>
+                <p>Create your own AI mogging vlogs and become part of the alpha ecosystem</p>
+            </div>
+
+            <div class="tutorial-grid">
+                <div class="tutorial-card main-tutorial">
+                    <div class="tutorial-icon">🎥</div>
+                    <h3>How to Create AI Mogging Vlogs</h3>
+                    <p>Master the art of AI video generation with Google's latest Veo 3 model</p>
+                    <div class="tutorial-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <strong>Get Google AI Pro Trial</strong>
+                                <p>Start your free trial to access premium AI models</p>
+                                <a href="https://gemini.google.com/subscriptions/?hl=en-GB" target="_blank" class="step-link">🔗 Get Free Trial</a>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <strong>Access Gemini</strong>
+                                <p>Generate 3 videos directly in Gemini interface</p>
+                                <a href="https://gemini.google.com" target="_blank" class="step-link">🔗 Open Gemini</a>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <strong>Use Google FX Labs</strong>
+                                <p>Create 10 additional videos with Veo 3 quality model</p>
+                                <a href="https://labs.google/fx/tools/flow" target="_blank" class="step-link">🔗 Open FX Labs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tutorial-card prompt-card">
+                    <div class="tutorial-icon">📜</div>
+                    <h3>Ultimate Mogging Prompt</h3>
+                    <p>Copy this exact format to create viral AI mogging content</p>
+                    
+                    <div class="prompt-container">
+                        <div class="prompt-header">
+                            <span>🔥 MOGGING PROMPT TEMPLATE</span>
+                            <button class="copy-prompt-btn" onclick="copyPrompt()">📋 Copy</button>
+                        </div>
+                        <div class="prompt-content" id="moggingPrompt">
+<strong>FORMAT INSTRUCTIONS:</strong>
+
+Write an AI video prompt for a short (~8 second) video clip. The style should be exaggerated, absurd, and cinematic with a chaotic vlog or meme-like tone, similar to YouTube or TikTok shorts.
+
+<strong>Follow this structure:</strong>
+
+<strong>Opening Tag (Bold):</strong>
+Briefly describe the type of video (e.g., "YouTube vlog-style jungle adventure" or "cinematic war zone TikTok meme"). Keep it punchy.
+
+<strong>Visual Description (Bold Title):</strong>
+Use vivid, dynamic imagery. Describe the setting, the main character(s), what they're wearing, especially if they have bold, reflective Pit Viper ski goggle-style sunglasses, and how the camera is moving (GoPro-style, handheld, zoom, shaky, dramatic, etc). Keep it weird, funny, or over-the-top.
+
+<strong>Dialogue (Italic or Bold + Quotation):</strong>
+Include a direct quote from the main character(s). Make the line hilarious, surreal, meme-worthy, or dramatic — always in-character and fitting the absurdity of the moment. Keep the tone playful, confident, or unhinged.
+
+<strong>Ending (Optional):</strong>
+Describe how the scene ends — a zoom-in, cut to black, a character's reaction, a freeze-frame, etc.
+
+<strong>Tone:</strong>
+Think: viral, chaotic, cinematic, meme-laced, satire of modern content, sometimes historical or futuristic, always wearing Pit Viper ski goggles for max mog energy.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="community-tips">
+                <h3>🔥 Pro Mogging Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <span class="tip-icon">🕶️</span>
+                        <strong>Always Include Pit Viper Goggles</strong>
+                        <p>Maximum mog energy requires reflective ski goggles</p>
+                    </div>
+                    <div class="tip-item">
+                        <span class="tip-icon">📱</span>
+                        <strong>GoPro-Style Filming</strong>
+                        <p>Shaky, handheld, dynamic camera movements</p>
+                    </div>
+                    <div class="tip-item">
+                        <span class="tip-icon">⚡</span>
+                        <strong>8-Second Rule</strong>
+                        <p>Keep clips short, punchy, and meme-worthy</p>
+                    </div>
+                    <div class="tip-item">
+                        <span class="tip-icon">🎭</span>
+                        <strong>Absurd Scenarios</strong>
+                        <p>Historical, futuristic, or completely unhinged situations</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="share-section">
+                <h3>📤 Share Your Mogging Creations</h3>
+                <p>Join our X community and share your AI mogging vlogs with fellow alphas!</p>
+                <div class="share-buttons">
+                    <a href="https://x.com/i/communities/1932652110702670039" target="_blank" class="share-btn x-community-share">
+                        <img src="x (1).svg" alt="X" class="x-logo-small"> Join X Community
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Chart Section -->
     <section class="chart-section">
         <div class="container">
             <h2>📈 Live Chart</h2>
             <div id="dexscreener-embed">
-                <iframe src="https://dexscreener.com/solana/9NvKd8dFzKmQq4oLWzcQdwszYaxDdN2VLiTtzovgpump?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"></iframe>
+                <iframe src="https://dexscreener.com/solana/9NvKd8dFzKmQq4oLWzcQdwszYaxDdN2VLiTtzovgpump?embed=1&loadChartSettings=0&trades=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"></iframe>
             </div>
         </div>
     </section>
@@ -1363,7 +1933,7 @@
     <footer class="footer">
         <div class="container">
             <div class="disclaimer">
-                "This is a meme coin. Mog is real. Your portfolio isn't. None of this is financial advice."
+                "This is a meme coin celebrating AI mogging culture. Mogging is real. Your portfolio performance may vary. None of this is financial advice."
             </div>
             
             <div class="social-links">
@@ -1446,6 +2016,70 @@
             }, 3000);
         }
 
+        // Copy mogging prompt functionality
+        function copyPrompt() {
+            const promptElement = document.getElementById('moggingPrompt');
+            const promptText = promptElement.textContent || promptElement.innerText;
+            
+            navigator.clipboard.writeText(promptText).then(() => {
+                showPromptNotification('🔥 Mogging prompt copied! Time to create alpha content!');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = promptText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showPromptNotification('🔥 Mogging prompt copied! Time to create alpha content!');
+            });
+        }
+
+        // Prompt notification system
+        function showPromptNotification(message) {
+            const notification = document.createElement('div');
+            notification.innerHTML = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                background: linear-gradient(135deg, #ff0050, #ff0080);
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                font-weight: 600;
+                z-index: 10000;
+                border: 1px solid rgba(255, 0, 80, 0.3);
+                box-shadow: 0 8px 25px rgba(255, 0, 80, 0.4);
+                animation: slideInPrompt 0.3s ease;
+                max-width: 300px;
+            `;
+            
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideInPrompt {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+            `;
+            
+            if (!document.querySelector('style[data-prompt-animation]')) {
+                style.setAttribute('data-prompt-animation', 'true');
+                document.head.appendChild(style);
+            }
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideInPrompt 0.3s ease reverse';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
         // API Integration for live stats
         async function fetchTokenData() {
             try {
@@ -1521,7 +2155,7 @@
             }
         }
 
-        // Video player functionality
+        // Enhanced video player functionality with audio control
         function playVideo(overlay) {
             const videoCard = overlay.parentElement;
             const video = videoCard.querySelector('video');
@@ -1546,49 +2180,101 @@
             }
         }
 
-        // Add click event to video cards for play/pause
-        document.addEventListener('DOMContentLoaded', function() {
-            // Fetch live token data on page load
-            fetchTokenData();
+        // Audio toggle functionality
+        function toggleAudio(audioBtn) {
+            // Stop the event from bubbling to prevent triggering playVideo
+            event.stopPropagation();
             
-            // Set up periodic updates every 30 seconds
-            setInterval(fetchTokenData, 30000);
-
-            document.querySelectorAll('.video-card video').forEach(video => {
-                video.addEventListener('click', function() {
-                    const overlay = this.parentElement.querySelector('.play-overlay');
-                    playVideo(overlay);
-                });
+            const videoCard = audioBtn.closest('.video-card');
+            const video = videoCard.querySelector('video');
+            
+            if (video.muted) {
+                video.muted = false;
+                audioBtn.innerHTML = '🔊';
+                audioBtn.classList.remove('muted');
+                audioBtn.classList.add('unmuted');
+                audioBtn.title = 'Mute audio';
                 
-                video.addEventListener('ended', function() {
-                    const overlay = this.parentElement.querySelector('.play-overlay');
-                    overlay.style.opacity = '1';
-                    overlay.querySelector('.play-btn').innerHTML = '▶';
-                });
-            });
+                // Show notification
+                showAudioNotification('🔊 Audio enabled! Volume up!');
+            } else {
+                video.muted = true;
+                audioBtn.innerHTML = '🔇';
+                audioBtn.classList.remove('unmuted');
+                audioBtn.classList.add('muted');
+                audioBtn.title = 'Unmute audio';
+                
+                showAudioNotification('🔇 Audio muted');
+            }
+        }
 
-            // Intersection Observer for video cards animation
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.transform = 'translateY(0)';
-                        entry.target.style.opacity = '1';
+        // Audio notification system
+        function showAudioNotification(message) {
+            const notification = document.createElement('div');
+            notification.innerHTML = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+                color: #ffd700;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                font-weight: 600;
+                z-index: 10000;
+                border: 1px solid rgba(255, 215, 0, 0.3);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+                animation: slideInAudio 0.3s ease;
+            `;
+            
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideInAudio {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideInAudio 0.3s ease reverse';
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
                     }
-                });
-            }, observerOptions);
+                    if (document.head.contains(style)) {
+                        document.head.removeChild(style);
+                    }
+                }, 300);
+            }, 2500);
+        }
 
-            document.querySelectorAll('.video-card').forEach(card => {
-                card.style.transform = 'translateY(50px)';
-                card.style.opacity = '0';
-                card.style.transition = 'all 0.6s ease-out';
-                observer.observe(card);
-            });
-        });
+        // Hero video audio control
+        function toggleHeroAudio(audioBtn) {
+            const heroVideo = document.querySelector('.hero-video');
+            
+            if (heroVideo.muted) {
+                heroVideo.muted = false;
+                audioBtn.innerHTML = '🔊';
+                audioBtn.classList.remove('muted');
+                audioBtn.classList.add('unmuted');
+                audioBtn.title = 'Mute hero video';
+                
+                showAudioNotification('🎬 Hero video audio enabled!');
+            } else {
+                heroVideo.muted = true;
+                audioBtn.innerHTML = '🔇';
+                audioBtn.classList.remove('unmuted');
+                audioBtn.classList.add('muted');
+                audioBtn.title = 'Unmute hero video';
+                
+                showAudioNotification('🔇 Hero video muted');
+            }
+        }
+
+        // Consolidated initialization - removed duplicate
 
         // Smooth scroll for internal links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1604,23 +2290,7 @@
             });
         });
 
-        // Enhanced interactive effects
-        document.addEventListener('mousemove', (e) => {
-            const hero = document.querySelector('.hero');
-            const rect = hero.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            if (y >= 0 && y <= rect.height) {
-                const xPercent = (x / rect.width) * 100;
-                const yPercent = (y / rect.height) * 100;
-                
-                // Update the overlay gradient based on mouse position
-                const overlay = hero.querySelector('::after');
-                hero.style.setProperty('--mouse-x', xPercent + '%');
-                hero.style.setProperty('--mouse-y', yPercent + '%');
-            }
-        });
+        // Removed duplicate mouse tracking - consolidated below
 
         // Enhanced parallax and scroll effects
         window.addEventListener('scroll', () => {
@@ -1649,27 +2319,7 @@
             }
         });
 
-        // Add loading animation for stats when they come into view
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                    // Stagger animation for child elements
-                    const children = entry.target.querySelectorAll('.live-stat-card, .tokenomics-card');
-                    children.forEach((child, index) => {
-                        setTimeout(() => {
-                            child.style.transform = 'translateY(0)';
-                            child.style.opacity = '1';
-                        }, index * 100);
-                    });
-                }
-            });
-        }, observerOptions);
+        // Moved to consolidated initialization below - removed duplicate
 
         // Enhanced cursor tracking for hero section
         document.addEventListener('mousemove', (e) => {
@@ -1698,9 +2348,62 @@
             }
         });
 
-        // Initialize all observers and effects
+        // Consolidated initialization - all functionality in one place
         document.addEventListener('DOMContentLoaded', function() {
-            // Observe stats sections for animations
+            // Fetch live token data on page load
+            fetchTokenData();
+            
+            // Set up periodic updates every 30 seconds
+            setInterval(fetchTokenData, 30000);
+
+            // Video card click events for play/pause
+            document.querySelectorAll('.video-card video').forEach(video => {
+                video.addEventListener('click', function() {
+                    const overlay = this.parentElement.querySelector('.play-overlay');
+                    playVideo(overlay);
+                });
+                
+                video.addEventListener('ended', function() {
+                    const overlay = this.parentElement.querySelector('.play-overlay');
+                    overlay.style.opacity = '1';
+                    overlay.querySelector('.play-btn').innerHTML = '▶';
+                });
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            // Stats animation observer
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                        // Stagger animation for child elements
+                        const children = entry.target.querySelectorAll('.live-stat-card, .tokenomics-card');
+                        children.forEach((child, index) => {
+                            setTimeout(() => {
+                                child.style.transform = 'translateY(0)';
+                                child.style.opacity = '1';
+                            }, index * 100);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            // Video cards animation observer
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.style.opacity = '1';
+                    }
+                });
+            }, observerOptions);
+
+            // Set up observers for sections
             const statsSection = document.querySelector('.token-stats');
             const videoSection = document.querySelector('.video-gallery');
             
@@ -1717,7 +2420,13 @@
             }
             
             if (videoSection) {
-                statsObserver.observe(videoSection);
+                // Set up video cards for animation
+                document.querySelectorAll('.video-card').forEach(card => {
+                    card.style.transform = 'translateY(50px)';
+                    card.style.opacity = '0';
+                    card.style.transition = 'all 0.6s ease-out';
+                    videoObserver.observe(card);
+                });
             }
         });
     </script>
