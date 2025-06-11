@@ -192,7 +192,7 @@
         }
 
         .tiktok-btn:hover .tiktok-logo {
-            filter: brightness(0) invert(1);
+            filter: brightness(0);
             transform: scale(1.1) rotate(5deg);
         }
 
@@ -205,7 +205,7 @@
         }
 
         .tiktok-link:hover .tiktok-logo-small {
-            filter: brightness(0) invert(0.8) sepia(1) saturate(2) hue-rotate(315deg);
+            filter: brightness(0) saturate(2) hue-rotate(300deg);
             transform: scale(1.2) rotate(-5deg);
         }
 
@@ -267,7 +267,99 @@
 
         .copy-btn:hover {
             background: var(--accent-orange);
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Enhanced Interactive Elements */
+        .btn {
+            position: relative;
+            transform-style: preserve-3d;
+            backface-visibility: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: inherit;
+            transform: translateZ(-1px) scale(0.95);
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover::after {
+            transform: translateZ(-2px) scale(0.9);
+            opacity: 0.6;
+        }
+
+        /* Floating Animation for CTA Buttons */
+        .cta-buttons .btn:nth-child(1) {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .cta-buttons .btn:nth-child(2) {
+            animation: float 3s ease-in-out infinite 0.5s;
+        }
+
+        .cta-buttons .btn:nth-child(3) {
+            animation: float 3s ease-in-out infinite 1s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Enhanced Hover Effects for Live Stats */
+        .live-stat-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .live-stat-card:hover {
+            transform: translateY(-8px) rotateX(5deg) rotateY(2deg);
+        }
+
+        /* Pulse Effect for Live Indicator */
+        .live-indicator {
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { 
+                box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+                transform: scale(1.02);
+            }
+        }
+
+        /* Interactive Tokenomics Cards */
+        .tokenomics-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .tokenomics-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            z-index: 10;
+            position: relative;
+        }
+
+        .tokenomics-card:hover .tokenomics-icon {
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 60%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            80% { transform: translateY(-10px); }
         }
 
         .rec-indicator {
@@ -804,24 +896,49 @@
             box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
         }
 
-        /* TikTok specific styling */
-        .btn[href*="tiktok"] {
-            background: linear-gradient(135deg, #ff0050, #ff0080);
+        /* Enhanced TikTok Button Styling */
+        .tiktok-btn {
+            background: linear-gradient(135deg, #ff0050, #ff0080, #ff00b0);
+            background-size: 200% 200%;
             color: white;
             border: 2px solid #ff0050;
+            position: relative;
+            overflow: hidden;
+            animation: tiktokGradient 3s ease infinite;
         }
 
-        .btn[href*="tiktok"]:hover {
-            background: linear-gradient(135deg, #ff0080, #ff00b0);
+        @keyframes tiktokGradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .tiktok-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .tiktok-btn:hover::before {
+            left: 100%;
+        }
+
+        .tiktok-btn:hover {
+            background: linear-gradient(135deg, #ff0080, #ff00b0, #ff0050);
             border-color: #ff0080;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 0, 80, 0.4);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(255, 0, 80, 0.5);
         }
 
-        .social-link[href*="tiktok"]:hover {
+        .tiktok-link:hover {
             color: #ff0050;
             border-color: #ff0050;
             box-shadow: 0 4px 15px rgba(255, 0, 80, 0.3);
+            transform: translateY(-2px);
         }
 
         .copyright {
@@ -829,26 +946,105 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive Design */
+        /* Enhanced Responsive Design */
+        @media (max-width: 1200px) {
+            .live-stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .tokenomics-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+            
             .cta-buttons {
                 flex-direction: column;
+                gap: 1rem;
+                width: 100%;
                 align-items: center;
             }
-
+            
             .btn {
                 width: 100%;
-                max-width: 300px;
+                max-width: 320px;
                 justify-content: center;
+                padding: 1rem 2rem;
+                font-size: 1rem;
             }
-
-            .stats-grid {
+            
+            .hero-contract {
+                margin-top: 2rem;
+            }
+            
+            .contract-display {
+                padding: 0.8rem 1rem;
+            }
+            
+            .contract-text {
+                font-size: 0.7rem;
+            }
+            
+            .live-stats-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
-
+            
+            .live-stat-card {
+                padding: 1.5rem;
+            }
+            
+            .stat-value {
+                font-size: 1.5rem;
+            }
+            
+            .tokenomics-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .tokenomics-card {
+                padding: 1.5rem;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .about {
+                padding: 4rem 0;
+            }
+            
             .mog-moments {
-                flex-direction: column;
+                justify-content: center;
+                flex-wrap: wrap;
+                flex-direction: row;
                 align-items: center;
+            }
+            
+            .moment-tag {
+                margin: 0.5rem;
+            }
+            
+            .contract-address-full {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .contract-display-text {
+                font-size: 0.8rem;
             }
 
             .social-links {
@@ -860,6 +1056,63 @@
                 top: 1rem;
                 right: 1rem;
                 font-size: 0.9rem;
+            }
+
+            /* Disable some heavy animations on mobile for better performance */
+            .btn::after,
+            .live-stat-card::before,
+            .cta-buttons .btn {
+                animation: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1rem;
+            }
+            
+            .stats-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .tokenomics-section h3 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .live-stat-card,
+            .tokenomics-card {
+                padding: 1rem;
+            }
+            
+            .stat-value {
+                font-size: 1.2rem;
+            }
+            
+            .tokenomics-value {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+                max-width: 280px;
+            }
+            
+            .x-logo, .tiktok-logo {
+                width: 16px;
+                height: 16px;
+            }
+            
+            .contract-text {
+                font-size: 0.6rem;
             }
         }
 
@@ -1369,12 +1622,102 @@
             }
         });
 
-        // Parallax effect for hero video
+        // Enhanced parallax and scroll effects
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const heroVideo = document.querySelector('.hero-video');
             if (heroVideo) {
                 heroVideo.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+
+            // Parallax effect for live stats cards
+            const liveStats = document.querySelectorAll('.live-stat-card');
+            liveStats.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                const scrollPercent = (window.innerHeight - rect.top) / window.innerHeight;
+                if (scrollPercent > 0 && scrollPercent < 1) {
+                    card.style.transform = `translateY(${(0.5 - scrollPercent) * 20}px)`;
+                }
+            });
+
+            // Dynamic opacity for stats based on scroll
+            const statsSection = document.querySelector('.token-stats');
+            if (statsSection) {
+                const rect = statsSection.getBoundingClientRect();
+                const scrollPercent = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / window.innerHeight));
+                statsSection.style.opacity = scrollPercent;
+            }
+        });
+
+        // Add loading animation for stats when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    // Stagger animation for child elements
+                    const children = entry.target.querySelectorAll('.live-stat-card, .tokenomics-card');
+                    children.forEach((child, index) => {
+                        setTimeout(() => {
+                            child.style.transform = 'translateY(0)';
+                            child.style.opacity = '1';
+                        }, index * 100);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        // Enhanced cursor tracking for hero section
+        document.addEventListener('mousemove', (e) => {
+            const hero = document.querySelector('.hero');
+            if (!hero) return;
+            
+            const rect = hero.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            if (y >= 0 && y <= rect.height && x >= 0 && x <= rect.width) {
+                const xPercent = (x / rect.width) * 100;
+                const yPercent = (y / rect.height) * 100;
+                
+                // Create subtle interactive glow effect
+                const glowIntensity = Math.max(0, 1 - Math.sqrt(Math.pow(xPercent - 50, 2) + Math.pow(yPercent - 50, 2)) / 70);
+                hero.style.setProperty('--glow-intensity', glowIntensity);
+                
+                // Move CTA buttons slightly with cursor
+                const ctaButtons = hero.querySelector('.cta-buttons');
+                if (ctaButtons) {
+                    const offsetX = (xPercent - 50) * 0.02;
+                    const offsetY = (yPercent - 50) * 0.02;
+                    ctaButtons.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+                }
+            }
+        });
+
+        // Initialize all observers and effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observe stats sections for animations
+            const statsSection = document.querySelector('.token-stats');
+            const videoSection = document.querySelector('.video-gallery');
+            
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+                
+                // Pre-hide cards for animation
+                const statCards = statsSection.querySelectorAll('.live-stat-card, .tokenomics-card');
+                statCards.forEach(card => {
+                    card.style.transform = 'translateY(50px)';
+                    card.style.opacity = '0';
+                    card.style.transition = 'all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1)';
+                });
+            }
+            
+            if (videoSection) {
+                statsObserver.observe(videoSection);
             }
         });
     </script>
